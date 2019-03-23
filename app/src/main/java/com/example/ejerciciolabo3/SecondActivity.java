@@ -20,6 +20,8 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+        mButtonShare=findViewById(R.id.bt_second_share);
+
         Log.d("MAINACTIVIY","Entrando a onCreate() de SecondActivity()");
 
         getTextViewId();
@@ -33,6 +35,16 @@ public class SecondActivity extends AppCompatActivity {
             mShowEmail.setText(mIntent.getStringExtra(AppConstants.EMAIL_KEY));
             mShowGender.setText(mIntent.getStringExtra(AppConstants.GENDER_KEY));
         }
+
+        mButtonShare.setOnClickListener(v ->{
+            Intent mIntent2 = new Intent();
+            mIntent2.setAction(Intent.ACTION_SEND);
+            mIntent2.setType("text/plain");
+            mIntent2.putExtra(Intent.EXTRA_TEXT,mShowName.getText().toString()+", "+
+                    mShowPass.getText().toString()+", "+mShowEmail.getText().toString()+", "+
+                    mShowGender.getText().toString());
+            startActivity(mIntent2);//INICIA EL INTENTO DE COMPARTIR
+        });
 
     }
 
