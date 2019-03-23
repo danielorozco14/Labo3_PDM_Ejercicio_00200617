@@ -11,9 +11,6 @@ import com.example.ejerciciolabo3.utilities.AppConstants;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = MainActivity.class.getSimpleName();
-
-
     Button mButton;//BOTON QUE SIRVE PARA ENVIAR LOS DATOS A LA NUEVA ACTIVIDAD;
     EditText mInputName,mInputPass,mInputEmail,mInputGender;
 
